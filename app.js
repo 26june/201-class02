@@ -18,7 +18,6 @@ function startQuiz() {
         case "yes":
           q1Answered = true;
           scoreCounter++;
-          documentScore.innerText = scoreCounter;
           break;
         case "no":
           q1Answered = true;
@@ -41,7 +40,6 @@ function startQuiz() {
         case "no":
           q2Answered = true;
           scoreCounter++;
-          documentScore.innerText = scoreCounter;
           break;
         default:
           alert("Please type yes or no");
@@ -58,7 +56,6 @@ function startQuiz() {
         case "no":
           q3Answered = true;
           scoreCounter++;
-          documentScore.innerText = scoreCounter;
           break;
         default:
           alert("Please type yes or no");
@@ -75,7 +72,6 @@ function startQuiz() {
         case "no":
           q4Answered = true;
           scoreCounter++;
-          documentScore.innerText = scoreCounter;
           break;
         default:
           alert("Please type yes or no");
@@ -89,7 +85,6 @@ function startQuiz() {
         case "yes":
           q5Answered = true;
           scoreCounter++;
-          documentScore.innerText = scoreCounter;
           break;
         case "no":
           q5Answered = true;
@@ -102,9 +97,15 @@ function startQuiz() {
     // console.log(`Your score is: ${scoreCounter}/5`);
     alert(`Your total score is ${scoreCounter}/5`);
 
+    documentScore.innerText = `You scored ${scoreCounter}/5! ${
+      scoreCounter <= 2 ? "You dont know me at all!" : "You know me so well!"
+    }`;
+
     factsList.style.filter = "";
   }, 0);
 }
+
+//TODO add carousel
 
 // fun fact
 // hobbies
@@ -113,4 +114,5 @@ function startQuiz() {
 // images
 // fav jokes
 
-//score next to button
+//score next to button - done - need to figure out how to update after each prompt
+//different ux - add a next button instead of subsequent prompts
