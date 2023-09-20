@@ -5,6 +5,9 @@ let documentScore;
 let documentButton;
 let iterationCount = 0;
 let scoreCounter = 0;
+let q6Attempt = 4;
+let q6Number = 6; // Correct number
+let totalQuiz = 7;
 
 function startQuiz() {
   switch (iterationCount) {
@@ -37,7 +40,7 @@ function startQuiz() {
         }
 
         documentButton.innerText = "Next Question";
-        documentScore.innerText = `Your current score is ${scoreCounter}/5!`;
+        documentScore.innerText = `Your current score is ${scoreCounter}/${totalQuiz}!`;
         iterationCount++;
       }, 0);
       break;
@@ -64,7 +67,7 @@ function startQuiz() {
         }
       }
 
-      documentScore.innerText = `Your current score is ${scoreCounter}/5!`;
+      documentScore.innerText = `Your current score is ${scoreCounter}/${totalQuiz}!`;
       iterationCount++;
       break;
 
@@ -87,7 +90,7 @@ function startQuiz() {
         }
       }
 
-      documentScore.innerText = `Your current score is ${scoreCounter}/5!`;
+      documentScore.innerText = `Your current score is ${scoreCounter}/${totalQuiz}!`;
       iterationCount++;
       break;
 
@@ -110,7 +113,7 @@ function startQuiz() {
         }
       }
 
-      documentScore.innerText = `Your current score is ${scoreCounter}/5!`;
+      documentScore.innerText = `Your current score is ${scoreCounter}/${totalQuiz}!`;
       iterationCount++;
       break;
 
@@ -132,13 +135,97 @@ function startQuiz() {
             alert("Please type yes or no");
         }
       }
+      factsList.style.filter = "";
+      documentScore.innerText = `Your current score is ${scoreCounter}/${totalQuiz}!`;
+      iterationCount++;
+      break;
 
-      documentScore.innerText = `You scored ${scoreCounter}/5! ${
-        scoreCounter <= 2 ? "You dont know me at all!" : "You know me so well!"
+    case 5:
+      let q6Answered = false;
+
+      while (!q6Answered) {
+        let q6Answer = Number(
+          prompt(
+            "I'm thinking of a number between 1-10. Can you guess what it is?"
+          )
+        );
+        switch (true) {
+          case q6Answer < 1 || q6Answer > 10:
+            alert("Please enter a number between 1-10");
+            break;
+          case q6Answer === q6Number:
+            q6Answered = true;
+            scoreCounter++;
+            iterationCount++;
+            alert("Correct!");
+            break;
+          case q6Answer < q6Number:
+            q6Answered = true;
+            q6Attempt--;
+            alert(
+              `${
+                q6Attempt === 0
+                  ? "You should've gone higher!"
+                  : `Go Higher! You have ${q6Attempt} more ${
+                      q6Attempt < 2 ? "attempt" : "attempts"
+                    }`
+              }`
+            );
+            break;
+          case q6Answer > q6Number:
+            q6Answered = true;
+            q6Attempt--;
+            alert(
+              `${
+                q6Attempt === 0
+                  ? "You should've gone lower!"
+                  : `Go Lower! You have ${q6Attempt} more ${
+                      q6Attempt < 2 ? "attempt" : "attempts"
+                    }`
+              }`
+            );
+            break;
+          default:
+            alert("Please enter a number between 1-10");
+        }
+
+        if (q6Attempt === 0) {
+          alert(
+            `You have no more attempts the correct answer was: ${q6Number}`
+          );
+          iterationCount++;
+        }
+      }
+
+      documentScore.innerText = `Your current score is ${scoreCounter}/${totalQuiz}!`;
+
+      break;
+
+    case 6:
+      let q7Answered = false;
+
+      let q7Letters = ["g", "j"];
+
+      while (!q7Answered) {
+        let q7Answer = prompt("What letter is in my first name?").toLowerCase();
+
+        if (q7Answer.length !== 1) {
+          alert("I only need one letter");
+        } else if (q7Letters.includes(q7Answer)) {
+          alert("Correct");
+          scoreCounter++;
+          q7Answered = true;
+        } else {
+          alert("Thats incorrect!");
+          q7Answered = true;
+        }
+      }
+
+      documentScore.innerText = `You scored ${scoreCounter}/${totalQuiz}! ${
+        scoreCounter <= 3 ? "You dont know me at all!" : "You know me so well!"
       }`;
 
       documentButton.innerText = "Take the quiz again";
-      factsList.style.filter = "";
       iterationCount = 0;
       break;
 
