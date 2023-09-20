@@ -9,36 +9,47 @@
     <link rel="stylesheet" href="style.css" />
     <title>About GJ</title>
   </head>
-  <body class="bg-effects">
+  <body ">
     <main>
-      <div class="image-container">
-        <img src="./assets/picture.jpg" alt="Gj" />
+      <div class="content1-bg">
+        <div class="content1">
+          <div class="image-container">
+            <img src="./assets/picture.jpg" alt="Gj" />
+          </div>
+  
+          <div class="text-container">
+            <div>
+              <h1>GJ Abordo</h1>
+            </div>
+            <h2>About Me!</h2>
+            <ul id="facts-list">
+              <li>Age: 23</li>
+              <li>Studied Engineering @ De Montfort University</li>
+              <li>Previous Job: Paralegal</li>
+              <li>Favourite Film Genre: Horror</li>
+              <li>Favourite Band: Two Door Cinema Club</li>
+            </ul>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse sunt
+              deleniti, ipsa vel sint ea dolores voluptatem eveniet iusto
+              repellendus aut assumenda, dolore impedit earum dolorum eum neque
+              fugiat blanditiis?
+            </p>
+            <div class="button-container">
+              <p>How well do you know me? Take this quiz to find out</p>
+              <button id="quiz-button" onclick="startQuiz()">Test Time!</button>
+            </div>
+  
+            <p id="score-counter"></p>
+          </div>
+        </div>
+
       </div>
 
-      <div class="text-container">
-        <div class="test">
-          <h1>GJ Abordo</h1>
+      <div class="content2"">
+        <div class="text-container">
+          //TODO Top 5 Favourite List and UL History
         </div>
-        <h2>About Me!</h2>
-        <ul id="facts-list">
-          <li>Age: 23</li>
-          <li>Studied Engineering @ De Montfort University</li>
-          <li>Previous Job: Paralegal</li>
-          <li>Favourite Film Genre: Horror</li>
-          <li>Favourite Band: Two Door Cinema Club</li>
-        </ul>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse sunt
-          deleniti, ipsa vel sint ea dolores voluptatem eveniet iusto
-          repellendus aut assumenda, dolore impedit earum dolorum eum neque
-          fugiat blanditiis?
-        </p>
-        <div class="button-container">
-          <p>How well do you know me? Take this quiz to find out</p>
-          <button id="quiz-button" onclick="startQuiz()">Test Time!</button>
-        </div>
-
-        <p id="score-counter">Your current score is 0/5</p>
       </div>
     </main>
   </body>
