@@ -6,6 +6,7 @@ let documentButton;
 let iterationCount = 0;
 let scoreCounter = 0;
 let q6Attempt = 4;
+let q7Attempt = 6;
 let q6Number = 6; // Correct number
 let totalQuiz = 7;
 
@@ -215,18 +216,24 @@ function startQuiz() {
           alert("Correct");
           scoreCounter++;
           q7Answered = true;
+          iterationCount = 0;
         } else {
-          alert("Thats incorrect!");
           q7Answered = true;
+          q7Attempt--;
+          alert(`Thats incorrect! You have ${q7Attempt} more attempts`);
+        }
+        if (q7Attempt === 0) {
+          alert(
+            `You have no more attempts the correct answer was: ${q7Letters}`
+          );
+          iterationCount = 0;
         }
       }
 
       documentScore.innerText = `You scored ${scoreCounter}/${totalQuiz}! ${
         scoreCounter <= 3 ? "You dont know me at all!" : "You know me so well!"
       }`;
-
       documentButton.innerText = "Take the quiz again";
-      iterationCount = 0;
       break;
 
     default:
